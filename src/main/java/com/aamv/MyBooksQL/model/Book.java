@@ -1,4 +1,4 @@
-package com.aamv.mybooksQL.model;
+package com.aamv.MyBooksQL.model;
 
 import java.util.Date;
 import java.util.List;

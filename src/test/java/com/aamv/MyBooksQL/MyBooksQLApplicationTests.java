@@ -1,10 +1,10 @@
-package com.aamv.mybooksQL;
+package com.aamv.MyBooksQL;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MybooksQlApplicationTests {
+class MyBooksQLApplicationTests {
 
 	@Test
 	void contextLoads() {

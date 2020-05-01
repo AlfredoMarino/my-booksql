@@ -1,24 +1,18 @@
-package com.aamv.mybooksQL;
+package com.aamv.MyBooksQL;
 
-import com.aamv.mybooksQL.model.Author;
-import com.aamv.mybooksQL.service.AuthorService;
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
+import com.aamv.MyBooksQL.model.Author;
+import com.aamv.MyBooksQL.service.AuthorService;
 import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 @SpringBootApplication
-public class MybooksQlApplication {
+public class MyBooksQLApplication {
 
 //	@Autowired
 	static Firestore firestore;
@@ -27,7 +21,7 @@ public class MybooksQlApplication {
 	static AuthorService authorService;
 
 	public static void main(String[] args) throws ExecutionException, InterruptedException {
-		ConfigurableApplicationContext context = SpringApplication.run(MybooksQlApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(MyBooksQLApplication.class, args);
 
 		firestore = (Firestore) context.getBean("firestore");
 		System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
