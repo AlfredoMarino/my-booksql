@@ -1,27 +1,30 @@
 package com.aamv.MyBooksQL.model;
 
+import com.google.cloud.firestore.annotation.DocumentId;
+
 import java.util.Date;
 import java.util.List;
 
 public class Book {
 
-    private Long idBook;
+    @DocumentId
+    private String id;
     private String title;
     private String subtitle;
     private String synopsis;
-    private List<Author> author;
+    private List<Author> authors;
     private Date publicationDate;
-    private List<String> category;
+    private List<String> categories;
     private String isbn10;
     private String isbn13;
     private String idGoogle;
 
-    public Long getIdBook() {
-        return idBook;
+    public String getId() {
+        return id;
     }
 
-    public void setIdBook(Long idBook) {
-        this.idBook = idBook;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -48,12 +51,12 @@ public class Book {
         this.synopsis = synopsis;
     }
 
-    public List<Author> getAuthor() {
-        return author;
+    public List<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(List<Author> author) {
-        this.author = author;
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
     public Date getPublicationDate() {
@@ -64,12 +67,12 @@ public class Book {
         this.publicationDate = publicationDate;
     }
 
-    public List<String> getCategory() {
-        return category;
+    public List<String> getCategories() {
+        return categories;
     }
 
-    public void setCategory(List<String> category) {
-        this.category = category;
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
     }
 
     public String getIsbn10() {
@@ -99,13 +102,13 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "idBook=" + idBook +
+                "id=" + id +
                 ", title='" + title + '\'' +
                 ", subtitle='" + subtitle + '\'' +
                 ", synopsis='" + synopsis + '\'' +
-                ", author=" + author +
+                ", authors=" + authors +
                 ", publicationDate=" + publicationDate +
-                ", category=" + category +
+                ", categories=" + categories +
                 ", isbn10='" + isbn10 + '\'' +
                 ", isbn13='" + isbn13 + '\'' +
                 ", idGoogle='" + idGoogle + '\'' +
