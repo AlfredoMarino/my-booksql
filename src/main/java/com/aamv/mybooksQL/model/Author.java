@@ -1,7 +1,10 @@
 package com.aamv.mybooksQL.model;
 
+import com.google.cloud.firestore.annotation.DocumentId;
+
 public class Author {
 
+    @DocumentId
     private String id;
     private String Name;
 

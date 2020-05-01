@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gcp:
+      firestore:
+        project-id: my-market-274314
+        credentials:
+          location: file:C:\winhome\cloud\gcp\keys\My Market-b8283aa7b7e6.json
+
+server:
+  port: 8083
