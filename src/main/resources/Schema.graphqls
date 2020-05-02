@@ -1,0 +1,21 @@
+type Author {
+    id: ID!
+    name: String!
+}
+
+input AuthorInput {
+    name: String!
+}
+
+type Query {
+    "Devuelve todos los Autores"
+    authors: [Author]
+}
+
+type Mutation {
+    "Crea un Autor"
+    createAuthor(author: AuthorInput!): Author
+
+    "Modifica un Autor"
+    updateAuthor(authorId: ID!, author: AuthorInput!): Author
+}

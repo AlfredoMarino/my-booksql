@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "1dd5652a-a40c-4b9b-83dd-4a33b5cb1558",
+		"name": "MyBooksQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Authors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    authors {\n        id\n        name\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation createAuthor($author: AuthorInput!) {\n    createAuthor(author: $author) {\n        id\n        name\n    }\n}",
+						"variables": "{\n\t\"author\": {\n\t\t\"name\": \"Raul Rivas\"\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation updateAuthor($authorId: ID!, $author: AuthorInput!) {\n    updateAuthor(authorId: $authorId, author: $author) {\n        id\n        name\n    }\n}",
+						"variables": "{\n\t\"authorId\": \"5cc4aff7-71a5-4b8b-8ba4-d5eca3260ec6\",\n\t\"author\": {\n\t\t\"name\": \"cambiado\"\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
