@@ -1,6 +1,6 @@
-package com.aamv.MyBooksQL.repository;
+package com.aamv.mybookql.repository;
 
-import com.aamv.MyBooksQL.model.Author;
+import com.aamv.mybookql.model.Author;
 import org.springframework.cloud.gcp.data.firestore.FirestoreReactiveRepository;
 import org.springframework.stereotype.Repository;
 

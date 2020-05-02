@@ -1,9 +1,9 @@
-package com.aamv.MyBooksQL;
+package com.aamv.mybookql;
 
-import com.aamv.MyBooksQL.model.Author;
-import com.aamv.MyBooksQL.model.Book;
-import com.aamv.MyBooksQL.service.AuthorService;
-import com.aamv.MyBooksQL.service.BookService;
+import com.aamv.mybookql.model.Author;
+import com.aamv.mybookql.model.Book;
+import com.aamv.mybookql.service.AuthorService;
+import com.aamv.mybookql.service.BookService;
 import com.google.cloud.firestore.Firestore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

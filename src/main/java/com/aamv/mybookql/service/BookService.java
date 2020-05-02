@@ -1,6 +1,6 @@
-package com.aamv.MyBooksQL.service;
+package com.aamv.mybookql.service;
 
-import com.aamv.MyBooksQL.model.Book;
+import com.aamv.mybookql.model.Book;
 
 import java.util.List;
 

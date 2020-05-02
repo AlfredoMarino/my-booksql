@@ -1,7 +1,7 @@
-package com.aamv.MyBooksQL.service;
+package com.aamv.mybookql.service;
 
-import com.aamv.MyBooksQL.model.Author;
-import com.aamv.MyBooksQL.repository.AuthorRepository;
+import com.aamv.mybookql.model.Author;
+import com.aamv.mybookql.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

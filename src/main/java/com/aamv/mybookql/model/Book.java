@@ -1,4 +1,4 @@
-package com.aamv.MyBooksQL.model;
+package com.aamv.mybookql.model;
 
 import com.google.cloud.firestore.annotation.DocumentId;
 
