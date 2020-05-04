@@ -1,0 +1,444 @@
+{
+	"info": {
+		"_postman_id": "1dd5652a-a40c-4b9b-83dd-4a33b5cb1558",
+		"name": "MyBooksQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Get Authors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    authors {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Author by id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    author(authorId: \"9983fdf9-7fb2-43d9-ad92-4bbb877771eb\") {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Author",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation createAuthor($author: AuthorInput!) {\n    createAuthor(author: $author) {\n        id\n        name\n    }\n}",
+								"variables": "{\n\t\"author\": {\n\t\t\"name\": \"Raul Rivas\"\n\t}\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Author",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation updateAuthor($authorId: ID!, $author: AuthorInput!) {\n    updateAuthor(authorId: $authorId, author: $author) {\n        id\n        name\n    }\n}",
+								"variables": "{\n\t\"authorId\": \"5cc4aff7-71a5-4b8b-8ba4-d5eca3260ec6\",\n\t\"author\": {\n\t\t\"name\": \"cambiado\"\n\t}\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Author",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation delete($authorId: ID!) {\n    deleteAuthor(authorId: $authorId)\n}",
+								"variables": "{\n\t\"authorId\": \"70a9e66f-d839-403a-8e5a-c8e6ac4730a4\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Get Books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    books {\n        id\n        title\n        subtitle\n        synopsis\n        authors {\n            id\n            name\n        }\n        publicationDate\n        categories\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation createBook($book: BookInput!) {\n    createBook(book: $book) {\n        id\n        title\n        subtitle\n        synopsis\n        authors {\n            id\n            name\n        }\n        publicationDate\n        categories\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
+								"variables": "{\n\t\"book\": {\n\t\t\"title\": \"La coleccionista de atardeceres\",\n\t\t\"authors\": [\n\t\t\t{\n\t\t\t\t\"name\": \"Miguel Ortiz\"\n\t\t\t}\n\t\t]\n\t}\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation updateBook($bookId: ID!, $book: BookEditInput!) {\n    updateBook(bookId: $bookId, book: $book) {\n        id\n        title\n        subtitle\n        synopsis\n        authors {\n            id\n            name\n        }\n        publicationDate\n        categories\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
+								"variables": "{\n\t\"bookId\": \"0e494952-bf69-4f03-bb88-58d1d85ef00b\",\n\t\"book\": {\n\t\t\"title\": \"Informe Pelicano\",\n\t\t\"authors\": [\n\t\t\t{\n\t\t\t\t\"id\": \"0e494952-bf58b\",\n\t\t\t\t\"name\": \"John Grishman\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": \"0e494952-bf58b\",\n\t\t\t\t\"name\": \"John Grishman\"\n\t\t\t}\n\t\t]\n\t}\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation delete($authorId: ID!) {\n    deleteAuthor(authorId: $authorId)\n}",
+								"variables": "{\n\t\"authorId\": \"70a9e66f-d839-403a-8e5a-c8e6ac4730a4\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book by id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    author(authorId: \"9983fdf9-7fb2-43d9-ad92-4bbb877771eb\") {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Get Persons",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    persons {\n        id\n        name\n        surname\n        booksRead {\n            title\n            authors {\n                name\n            }\n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation createPerson($person: PersonInput!) {\n    createPerson(person: $person) {\n        name\n        surname\n    }\n}",
+								"variables": "{\n\t\"person\": {\n\t\t\"name\": \"Marco\",\n\t\t\"surname\": \"Mariño\"\n\t}\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation updatePerson($personId: ID!, $person: PersonEditInput!) {\n    updatePerson(personId: $personId, person: $person) {\n        id\n        name\n        surname\n        booksRead {\n            title\n        }\n    }\n}",
+								"variables": "{\n\t\"personId\": \"2c744e56-2f00-4d6d-b014-edc9ee0f48dd\",\n\t\"person\": {\n\t\t\"name\": \"marco arreglar el delete\",\n\t\t\"surname\": \"mariño3234\"\n\t}\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    deletePerson(personId: \"2c744e56-2f00-4d6d-b014-edc9ee0f48dd\")\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Person by id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    person(personId: \"c2e28999-c607-46b5-8f12-8eb63d28ead6\") {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation readBook {\n    readBook(\n        personId: \"c2e28999-c607-46b5-8f12-8eb63d28ead6\",\n        bookId: \"8a21049e-14a1-4de7-8f47-dfcbe23a25e1\"\n    ) {\n        id\n        name\n        surname\n        bookIdentifiers\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

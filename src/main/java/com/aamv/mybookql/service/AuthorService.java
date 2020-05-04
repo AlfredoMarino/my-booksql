@@ -8,6 +8,8 @@ public interface AuthorService {
 
     Author createAuthor(Author author);
 
+    List<Author> createAuthors(List<Author> authors);
+
     Author updateAuthor(String authorId, Author author);
 
     Author getAuthor(String authorId);
