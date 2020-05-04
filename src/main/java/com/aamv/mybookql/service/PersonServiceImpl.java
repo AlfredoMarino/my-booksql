@@ -5,6 +5,7 @@ import com.aamv.mybookql.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,14 +22,21 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person createPerson(Person person) {
         person.setId(UUID.randomUUID().toString());
+        if (person.getBookIdentifiers() == null) {
+            person.setBookIdentifiers(new ArrayList<>());
+        }
         return personRepository.save(person).block();
     }
 
     @Override
     public Person updatePerson(String personId, Person person) {
         Person persistedPerson = getPerson(personId);
-        persistedPerson.setName(person.getName());
-        persistedPerson.setSurname(person.getSurname());
+        if (person.getName() != null) {
+            persistedPerson.setName(person.getName());
+        }
+        if (person.getSurname() != null) {
+            persistedPerson.setSurname(person.getSurname());
+        }
         return personRepository.save(persistedPerson).block();
     }
 

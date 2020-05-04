@@ -1,0 +1,18 @@
+
+type Person {
+    id: String!
+    name: String!
+    surname: String
+    booksRead: [Book]
+}
+
+input PersonInput {
+    name: String!
+    surname: String
+}
+
+input PersonEditInput {
+    id: String
+    name: String
+    surname: String
+}

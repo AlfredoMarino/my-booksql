@@ -11,82 +11,16 @@ type Query {
 
 type Mutation {
     createAuthor(author: AuthorInput!): Author
-    deleteAuthor(authorId: ID!): String
     updateAuthor(authorId: ID!, author: AuthorInput!): Author
+    deleteAuthor(authorId: ID!): String
 
     createBook(book: BookInput!): Book
     updateBook(bookId: ID!, book: BookEditInput!): Book
-    deleteBook(BookId: ID!): String
+    deleteBook(bookId: ID!): String
 
     createPerson(person: PersonInput!): Person
     updatePerson(personId: ID!, person: PersonEditInput!): Person
-    deletePerson(PersonId: ID!): String
-}
+    deletePerson(personId: ID!): String
 
-type Author {
-    id: ID!
-    name: String!
-}
-
-type Book {
-    id: String!
-    title: String
-    subtitle: String
-    synopsis: String
-    authors: [Author]!
-    categories: [String]
-    idGoogle: String
-    isbn10: String
-    isbn13: String
-    publicationDate: String
-}
-
-type Person {
-    id: String!
-    name: String!
-    surname: String
-}
-
-input AuthorInput {
-    name: String!
-}
-
-input AuthorEditInput {
-    id: ID
-    name: String
-}
-
-input BookInput {
-    title: String!
-    subtitle: String
-    synopsis: String
-    authors: [AuthorInput]!
-    categories: [String]
-    idGoogle: String
-    isbn10: String
-    isbn13: String
-    publicationDate: String
-}
-
-input BookEditInput {
-    title: String
-    subtitle: String
-    synopsis: String
-    authors: [AuthorEditInput]
-    categories: [String]
-    idGoogle: String
-    isbn10: String
-    isbn13: String
-    publicationDate: String
-}
-
-input PersonInput {
-    name: String!
-    surname: String
-}
-
-input PersonEditInput {
-    id: String
-    name: String
-    surname: String
+    readBook(personId: ID!, bookId: ID!): Person
 }

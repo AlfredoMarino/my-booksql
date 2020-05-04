@@ -10,6 +10,8 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component
 public class Mutation implements GraphQLMutationResolver {
 
@@ -55,5 +57,15 @@ public class Mutation implements GraphQLMutationResolver {
     public String deletePerson(String personId) {
         personService.deletePerson(personId);
         return personId;
+    }
+
+    public Person readBook(String personId, String bookId) {
+        Person person = personService.getPerson(personId);
+        Book book = bookService.getBook(bookId);
+        if (person.getBookIdentifiers() == null) {
+            person.setBookIdentifiers(new ArrayList<>());
+        }
+        person.getBookIdentifiers().add(book.getId());
+        return personService.updatePerson(personId, person);
     }
 }

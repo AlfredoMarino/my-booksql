@@ -53,6 +53,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<Book> getBooks(List<String> bookIdentifiers) {
+        return bookRepository.findAllById(bookIdentifiers).collectList().block();
+    }
+
+    @Override
     public void deleteBook(String bookId) {
         bookRepository.deleteById(bookId);
     }

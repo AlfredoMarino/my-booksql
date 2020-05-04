@@ -1,0 +1,38 @@
+
+type Book {
+    id: String!
+    title: String
+    subtitle: String
+    synopsis: String
+    authors: [Author]!
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
+}
+
+
+input BookInput {
+    title: String!
+    subtitle: String
+    synopsis: String
+    authors: [AuthorInput]!
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
+}
+
+input BookEditInput {
+    title: String
+    subtitle: String
+    synopsis: String
+    authors: [AuthorEditInput]
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
+}

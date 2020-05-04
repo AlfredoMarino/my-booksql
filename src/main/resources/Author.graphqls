@@ -1,0 +1,14 @@
+
+type Author {
+    id: ID!
+    name: String!
+}
+
+input AuthorInput {
+    name: String!
+}
+
+input AuthorEditInput {
+    id: ID
+    name: String
+}
