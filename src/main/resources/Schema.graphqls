@@ -4,6 +4,9 @@ type Query {
 
     book(bookId: ID): Book
     books: [Book]
+
+    person(personId: ID): Person
+    persons: [Person]
 }
 
 type Mutation {
@@ -14,6 +17,10 @@ type Mutation {
     createBook(book: BookInput!): Book
     updateBook(bookId: ID!, book: BookEditInput!): Book
     deleteBook(BookId: ID!): String
+
+    createPerson(person: PersonInput!): Person
+    updatePerson(personId: ID!, person: PersonEditInput!): Person
+    deletePerson(PersonId: ID!): String
 }
 
 type Author {
@@ -32,6 +39,12 @@ type Book {
     isbn10: String
     isbn13: String
     publicationDate: String
+}
+
+type Person {
+    id: String!
+    name: String!
+    surname: String
 }
 
 input AuthorInput {
@@ -65,4 +78,15 @@ input BookEditInput {
     isbn10: String
     isbn13: String
     publicationDate: String
+}
+
+input PersonInput {
+    name: String!
+    surname: String
+}
+
+input PersonEditInput {
+    id: String
+    name: String
+    surname: String
 }
