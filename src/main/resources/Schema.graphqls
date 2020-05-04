@@ -1,21 +1,68 @@
+type Query {
+    author(authorId: ID): Author
+    authors: [Author]
+
+    book(bookId: ID): Book
+    books: [Book]
+}
+
+type Mutation {
+    createAuthor(author: AuthorInput!): Author
+    deleteAuthor(authorId: ID!): String
+    updateAuthor(authorId: ID!, author: AuthorInput!): Author
+
+    createBook(book: BookInput!): Book
+    updateBook(bookId: ID!, book: BookEditInput!): Book
+    deleteBook(BookId: ID!): String
+}
+
 type Author {
     id: ID!
     name: String!
+}
+
+type Book {
+    id: String!
+    title: String
+    subtitle: String
+    synopsis: String
+    authors: [Author]!
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
 }
 
 input AuthorInput {
     name: String!
 }
 
-type Query {
-    "Devuelve todos los Autores"
-    authors: [Author]
+input AuthorEditInput {
+    id: ID
+    name: String
 }
 
-type Mutation {
-    "Crea un Autor"
-    createAuthor(author: AuthorInput!): Author
+input BookInput {
+    title: String!
+    subtitle: String
+    synopsis: String
+    authors: [AuthorInput]!
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
+}
 
-    "Modifica un Autor"
-    updateAuthor(authorId: ID!, author: AuthorInput!): Author
+input BookEditInput {
+    title: String
+    subtitle: String
+    synopsis: String
+    authors: [AuthorEditInput]
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
 }

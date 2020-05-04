@@ -6,19 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class BookServiceImpl implements BookService {
 
     private BookRepository bookRepository;
+    private AuthorService authorService;
 
     @Autowired
-    public BookServiceImpl(BookRepository bookRepository) {
+    public BookServiceImpl(BookRepository bookRepository, AuthorService authorService) {
         this.bookRepository = bookRepository;
+        this.authorService = authorService;
     }
 
     @Override
     public Book createBook(Book book) {
+        book.setId(UUID.randomUUID().toString());
+        book.setAuthors(authorService.createAuthors(book.getAuthors()));
         return bookRepository.save(book).block();
     }
 
