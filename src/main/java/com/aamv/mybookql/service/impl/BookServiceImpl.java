@@ -1,7 +1,9 @@
-package com.aamv.mybookql.service;
+package com.aamv.mybookql.service.impl;
 
 import com.aamv.mybookql.model.Book;
 import com.aamv.mybookql.repository.BookRepository;
+import com.aamv.mybookql.service.AuthorService;
+import com.aamv.mybookql.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,15 +32,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book updateBook(String bookId, Book book) {
         Book persistedBook = getBook(bookId);
-        persistedBook.setTitle(book.getTitle());
-        persistedBook.setSubtitle(book.getSubtitle());
-        persistedBook.setSynopsis(book.getSynopsis());
-        persistedBook.setAuthors(book.getAuthors());
-        persistedBook.setPublicationDate(book.getPublicationDate());
-        persistedBook.setCategories(book.getCategories());
-        persistedBook.setIsbn10(book.getIsbn10());
-        persistedBook.setIsbn13(book.getIsbn13());
-        persistedBook.setIdGoogle(book.getIdGoogle());
+        if (book.getTitle() != null) persistedBook.setTitle(book.getTitle());
+        if (book.getSubtitle() != null) persistedBook.setSubtitle(book.getSubtitle());
+        if (book.getSynopsis() != null) persistedBook.setSynopsis(book.getSynopsis());
+        if (book.getAuthors() != null) persistedBook.setAuthors(book.getAuthors());
+        if (book.getPublicationDate() != null) persistedBook.setPublicationDate(book.getPublicationDate());
+        if (book.getCategories() != null) persistedBook.setCategories(book.getCategories());
+        if (book.getIsbn10() != null) persistedBook.setIsbn10(book.getIsbn10());
+        if (book.getIsbn13() != null) persistedBook.setIsbn13(book.getIsbn13());
+        if (book.getIdGoogle() != null) persistedBook.setIdGoogle(book.getIdGoogle());
         return bookRepository.save(persistedBook).block();
     }
 
@@ -59,6 +61,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteBook(String bookId) {
-        bookRepository.deleteById(bookId);
+        bookRepository.deleteById(bookId).block();
     }
 }
