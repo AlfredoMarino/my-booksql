@@ -38,7 +38,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Author updateAuthor(String authorId, Author author) {
         Author persistedAuthor = getAuthor(authorId);
-        persistedAuthor.setName(author.getName());
+        if (author.getName() != null) persistedAuthor.setName(author.getName());
         return authorRepository.save(persistedAuthor).block();
     }
 

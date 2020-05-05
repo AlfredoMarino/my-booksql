@@ -32,12 +32,9 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person updatePerson(String personId, Person person) {
         Person persistedPerson = getPerson(personId);
-        if (person.getName() != null) {
-            persistedPerson.setName(person.getName());
-        }
-        if (person.getSurname() != null) {
-            persistedPerson.setSurname(person.getSurname());
-        }
+        if (person.getName() != null) persistedPerson.setName(person.getName());
+        if (person.getSurname() != null) persistedPerson.setSurname(person.getSurname());
+        if (person.getBookIdentifiers() != null) persistedPerson.setBookIdentifiers(person.getBookIdentifiers());
         return personRepository.save(persistedPerson).block();
     }
 
