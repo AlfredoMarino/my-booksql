@@ -13,9 +13,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 Follow these [instructions](https://cloud.google.com/firestore/docs/quickstart-servers) until you get to the step of downloading the json key to your computer to create the firestore database in the google cloud and access it from the project. Include this step:
 ![Set-google-credential-location](docs/google-cloud-instructions1.png)
-This information is also available in Spanish [here](https://cloud.google.com/firestore/docs/quickstart-servers?hl=es). _This Google service is free but it has its conditions, I suggest getting information_
+This information is also available in Spanish [here](https://cloud.google.com/firestore/docs/quickstart-servers?hl=es). **_This Google service is free but it has its conditions, I suggest getting information_**
 
-If you want to manually set the location of the credentials, modify the _src/main/resources/application.yml_ as follows:
+**Note:** If you want to manually set the location of the credentials, modify the _src/main/resources/application.yml_ as follows:
 
 ````
 spring:
