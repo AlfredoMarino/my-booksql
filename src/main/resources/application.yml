@@ -2,9 +2,9 @@ spring:
   cloud:
     gcp:
       firestore:
-        project-id: my-market-274314
+        project-id: [YOUR_GCP_PROJECT_ID]
         credentials:
-          location: file:C:\winhome\cloud\gcp\keys\My Market-b8283aa7b7e6.json
+          location: file:C:\Users\username\Downloads\[FILE_NAME].json
 
 server:
   port: 8083
