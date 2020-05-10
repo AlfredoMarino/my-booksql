@@ -10,10 +10,6 @@ type Query {
 }
 
 type Mutation {
-    createAuthor(author: AuthorInput!): Author
-    updateAuthor(authorId: ID!, author: AuthorInput!): Author
-    deleteAuthor(authorId: ID!): String
-
     createBook(book: BookInput!): Book
     updateBook(bookId: ID!, book: BookEditInput!): Book
     deleteBook(bookId: ID!): String
