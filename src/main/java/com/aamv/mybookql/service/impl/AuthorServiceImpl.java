@@ -22,6 +22,10 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Author createAuthor(Author author) {
+        Author persistedAuthor = authorRepository.findByName(author.getName()).block();
+        if (persistedAuthor != null) {
+            return persistedAuthor;
+        }
         author.setId(UUID.randomUUID().toString());
         return authorRepository.save(author).block();
     }

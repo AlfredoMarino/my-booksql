@@ -1,6 +1,6 @@
 
 type Person {
-    id: String!
+    id: ID!
     name: String!
     surname: String
     booksRead: [Book]

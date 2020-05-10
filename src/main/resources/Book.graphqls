@@ -1,6 +1,6 @@
 
 type Book {
-    id: String!
+    id: ID!
     title: String
     subtitle: String
     synopsis: String
