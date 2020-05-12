@@ -42,86 +42,8 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\n    author(authorId: \"9983fdf9-7fb2-43d9-ad92-4bbb877771eb\") {\n        id\n        name\n    }\n}",
+								"query": "{\n    author(authorId: \"d5bcdc96-22c7-4ae0-a4f0-181a3b80d4cf\") {\n        id\n        name\n    }\n}",
 								"variables": ""
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8083/graphql",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8083",
-							"path": [
-								"graphql"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Author",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "graphql",
-							"graphql": {
-								"query": "mutation createAuthor($author: AuthorInput!) {\n    createAuthor(author: $author) {\n        id\n        name\n    }\n}",
-								"variables": "{\n\t\"author\": {\n\t\t\"name\": \"Raul Rivas\"\n\t}\n}"
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8083/graphql",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8083",
-							"path": [
-								"graphql"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Author",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "graphql",
-							"graphql": {
-								"query": "mutation updateAuthor($authorId: ID!, $author: AuthorInput!) {\n    updateAuthor(authorId: $authorId, author: $author) {\n        id\n        name\n    }\n}",
-								"variables": "{\n\t\"authorId\": \"5cc4aff7-71a5-4b8b-8ba4-d5eca3260ec6\",\n\t\"author\": {\n\t\t\"name\": \"cambiado\"\n\t}\n}"
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8083/graphql",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8083",
-							"path": [
-								"graphql"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Author",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "graphql",
-							"graphql": {
-								"query": "mutation delete($authorId: ID!) {\n    deleteAuthor(authorId: $authorId)\n}",
-								"variables": "{\n\t\"authorId\": \"70a9e66f-d839-403a-8e5a-c8e6ac4730a4\"\n}"
 							}
 						},
 						"url": {
@@ -152,7 +74,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\n    books {\n        id\n        title\n        subtitle\n        synopsis\n        authors {\n            id\n            name\n        }\n        publicationDate\n        categories\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
+								"query": "{\n    books {\n        id\n        title\n        subtitle\n        publicationDate\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
 								"variables": ""
 							}
 						},
@@ -178,8 +100,8 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "mutation createBook($book: BookInput!) {\n    createBook(book: $book) {\n        id\n        title\n        subtitle\n        synopsis\n        authors {\n            id\n            name\n        }\n        publicationDate\n        categories\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
-								"variables": "{\n\t\"book\": {\n\t\t\"title\": \"La coleccionista de atardeceres\",\n\t\t\"authors\": [\n\t\t\t{\n\t\t\t\t\"name\": \"Miguel Ortiz\"\n\t\t\t}\n\t\t]\n\t}\n}"
+								"query": "mutation createBook($book: BookInput!) {\n    createBook(book: $book) {\n        id\n        title\n        subtitle\n        synopsis\n        authors {\n            name\n        }\n        publicationDate\n        categories\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
+								"variables": "{\r\n    \"book\": {\r\n        \"title\": \"Choque de reyes (Canción de hielo y fuego 2)\",\r\n        \"subtitle\": \"\",\r\n        \"synopsis\": \"Cuatro nobles se proclaman, a la vez, reyes legítimos, y las tierras de Poniente se estremecen entre guerras y traiciones. Un horror presidido por la más ominosa de las señales: un inmenso cometa color sangre suspendido en el cielo. Choque de reyes es el segundo volumen de Canción de hielo y fuego, la monumental saga de fantasía épica del escritor George R. R. Martin que ha vendido más de 20 millones de ejemplares en todo el mundo. La saga que inspiró la filmación de la aclamada serie televisiva de HBO: Game of Thrones. \\\"Ahora hay más reyes en el reino que ratas en un castillo\\\", afirma uno de los personajes de Choque de reyes. Y es que después de la sospechosa muerte de Robert Baratheon, el monarca de los Siete Reinos, su hijo Joffrey ha sido impuesto por la fuerza, aunque \\\"quienes realmente gobiernan son su madre, un eunuco y un enano\\\", como dice la voz del pueblo. Cuatro nobles se proclaman, a la vez, reyes legítimos, y las tierras de Poniente se estremecen entre guerras y traiciones. Y todo este horror se encuentra presidido por la más ominosa de las señales: un inmenso cometa color sangre suspendido en el cielo. En esta novela prodigiosa nada es realmente lo que parece ser. Los protagonistas, trazados con una complejidad asombrosa, son capaces de hacerse odiar o amar desde las primeras páginas. George R. R. Martin, con pulso firme y enérgico, vuelve a ofrecernos un brillante despliegue de personajes, en una trama rica, densa y sorprendente. Nos convierte en testigos de luchas fratricidas, intrigas y traiciones palaciegas en una tierra maldita por la guerra, donde fuerzas ocultas se alzan de nuevo y acechan para reinar en las noches del largo invierno que se avecina. La crítica ha dicho: \\\"Martin supera holgadamente las expectativas creadas con el primer título y continúa la que está llamada a ser una de las mejores series de fantasía de todos los tiempos.\\\" - The Denver Post\",\r\n        \"authors\": [\r\n            {\r\n                \"name\": \"George R. R. Martin\"\r\n            }\r\n        ],\r\n        \"publicationDate\": \"2014-04-04T00:00:00.000+0000\",\r\n        \"categories\": [\r\n            \"Ficcion\",\r\n            \"medieval\"\r\n        ],\r\n        \"isbn10\": \"6073123671\",\r\n        \"isbn13\": \"9786073123679\",\r\n        \"idGoogle\": \"jM42AwAAQBAJ\"\r\n    }\r\n}"
 							}
 						},
 						"url": {
@@ -204,8 +126,8 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "mutation updateBook($bookId: ID!, $book: BookEditInput!) {\n    updateBook(bookId: $bookId, book: $book) {\n        id\n        title\n        subtitle\n        synopsis\n        authors {\n            id\n            name\n        }\n        publicationDate\n        categories\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
-								"variables": "{\n\t\"bookId\": \"0e494952-bf69-4f03-bb88-58d1d85ef00b\",\n\t\"book\": {\n\t\t\"title\": \"Informe Pelicano\",\n\t\t\"authors\": [\n\t\t\t{\n\t\t\t\t\"id\": \"0e494952-bf58b\",\n\t\t\t\t\"name\": \"John Grishman\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": \"0e494952-bf58b\",\n\t\t\t\t\"name\": \"John Grishman\"\n\t\t\t}\n\t\t]\n\t}\n}"
+								"query": "mutation updateBook($bookId: ID!, $book: BookEditInput!) {\n    updateBook(bookId: $bookId, book: $book) {\n        id\n        title\n        subtitle\n        synopsis\n        publicationDate\n        categories\n        isbn10\n        isbn13\n        idGoogle\n    }\n}",
+								"variables": "{\n\t\"bookId\": \"b3907aa0-fc3f-4a14-b703-e2278abdd95b\",\n\t\"book\": {\n\t\t\"title\": \"Rayuela\"\n\t}\n}"
 							}
 						},
 						"url": {
@@ -230,8 +152,8 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "mutation delete($authorId: ID!) {\n    deleteAuthor(authorId: $authorId)\n}",
-								"variables": "{\n\t\"authorId\": \"70a9e66f-d839-403a-8e5a-c8e6ac4730a4\"\n}"
+								"query": "mutation delete($bookId: ID!) {\n    deleteBook(bookId: $bookId)\n}",
+								"variables": "{\n\t\"bookId\": \"b3907aa0-fc3f-4a14-b703-e2278abdd95b\"\n}"
 							}
 						},
 						"url": {
@@ -256,7 +178,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\n    author(authorId: \"9983fdf9-7fb2-43d9-ad92-4bbb877771eb\") {\n        id\n        name\n    }\n}",
+								"query": "{\n    book(bookId: \"a0022ca2-7076-494d-88ac-a75e582f5057\") {\n        id\n        title\n        subtitle\n        publicationDate\n        isbn10\n        isbn13\n        idGoogle\n        authors{\n            name\n        }\n        categories\n    }\n}",
 								"variables": ""
 							}
 						},
@@ -288,7 +210,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\n    persons {\n        id\n        name\n        surname\n        booksRead {\n            title\n            authors {\n                name\n            }\n        }\n    }\n}",
+								"query": "{\n    persons {\n        id\n        name\n        surname\n        booksRead {\n            title\n        }\n    }\n}",
 								"variables": ""
 							}
 						},
@@ -314,8 +236,8 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "mutation createPerson($person: PersonInput!) {\n    createPerson(person: $person) {\n        name\n        surname\n    }\n}",
-								"variables": "{\n\t\"person\": {\n\t\t\"name\": \"Marco\",\n\t\t\"surname\": \"Mariño\"\n\t}\n}"
+								"query": "mutation createPerson($person: PersonInput!) {\n    createPerson(person: $person) {\n        id\n        name\n        surname\n    }\n}",
+								"variables": "{\n\t\"person\": {\n\t\t\"name\": \"scarlett\",\n\t\t\"surname\": \"johansson\"\n\t}\n}"
 							}
 						},
 						"url": {
@@ -341,7 +263,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "mutation updatePerson($personId: ID!, $person: PersonEditInput!) {\n    updatePerson(personId: $personId, person: $person) {\n        id\n        name\n        surname\n        booksRead {\n            title\n        }\n    }\n}",
-								"variables": "{\n\t\"personId\": \"2c744e56-2f00-4d6d-b014-edc9ee0f48dd\",\n\t\"person\": {\n\t\t\"name\": \"marco arreglar el delete\",\n\t\t\"surname\": \"mariño3234\"\n\t}\n}"
+								"variables": "{\n\t\"personId\": \"89fb21d2-a254-4034-affb-dba02c037b4d\",\n\t\"person\": {\n\t\t\"name\": \"Bryan\",\n\t\t\"surname\": \"Cranston\"\n\t}\n}"
 							}
 						},
 						"url": {
@@ -366,7 +288,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "mutation {\n    deletePerson(personId: \"2c744e56-2f00-4d6d-b014-edc9ee0f48dd\")\n}",
+								"query": "mutation {\n    deletePerson(personId: \"4ccf3cf6-90de-49ce-ae26-25044949e6b6\")\n}",
 								"variables": ""
 							}
 						},
@@ -392,7 +314,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\n    person(personId: \"c2e28999-c607-46b5-8f12-8eb63d28ead6\") {\n        id\n        name\n    }\n}",
+								"query": "{\n    person(personId: \"0eca8e17-8a28-4299-b11a-1a8538b52df0\") {\n        id\n        name\n    }\n}",
 								"variables": ""
 							}
 						},
@@ -418,7 +340,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "mutation readBook {\n    readBook(\n        personId: \"c2e28999-c607-46b5-8f12-8eb63d28ead6\",\n        bookId: \"8a21049e-14a1-4de7-8f47-dfcbe23a25e1\"\n    ) {\n        id\n        name\n        surname\n        bookIdentifiers\n    }\n}",
+								"query": "mutation readBook {\n    readBook(\n        personId: \"8233979a-a567-4d42-a245-57fb727954a4\",\n        bookId: \"e123fb62-3031-46ef-a8ef-b7f8e305aec0\"\n    ) {\n        id\n        name\n        surname\n        booksRead {\n            title\n        }\n    }\n}",
 								"variables": ""
 							}
 						},

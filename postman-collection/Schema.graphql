@@ -1,0 +1,91 @@
+type Query {
+    author(authorId: ID): Author
+    authors: [Author]
+
+    book(bookId: ID): Book
+    books: [Book]
+
+    person(personId: ID): Person
+    persons: [Person]
+}
+
+type Mutation {
+    createBook(book: BookInput!): Book
+    updateBook(bookId: ID!, book: BookEditInput!): Book
+    deleteBook(bookId: ID!): String
+
+    createPerson(person: PersonInput!): Person
+    updatePerson(personId: ID!, person: PersonEditInput!): Person
+    deletePerson(personId: ID!): String
+
+    readBook(personId: ID!, bookId: ID!): Person
+}
+
+type Book {
+    id: ID!
+    title: String
+    subtitle: String
+    synopsis: String
+    authors: [Author]!
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
+}
+
+input BookInput {
+    title: String!
+    subtitle: String
+    synopsis: String
+    authors: [AuthorInput]!
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
+}
+
+input BookEditInput {
+    title: String
+    subtitle: String
+    synopsis: String
+    authors: [AuthorEditInput]
+    categories: [String]
+    idGoogle: String
+    isbn10: String
+    isbn13: String
+    publicationDate: String
+}
+
+type Author {
+    id: ID!
+    name: String!
+}
+
+input AuthorInput {
+    name: String!
+}
+
+input AuthorEditInput {
+    id: ID
+    name: String
+}
+
+type Person {
+    id: ID!
+    name: String!
+    surname: String
+    booksRead: [Book]
+}
+
+input PersonInput {
+    name: String!
+    surname: String
+}
+
+input PersonEditInput {
+    id: String
+    name: String
+    surname: String
+}

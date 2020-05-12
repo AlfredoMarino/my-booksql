@@ -1,4 +1,3 @@
-
 type Book {
     id: ID!
     title: String
@@ -11,7 +10,6 @@ type Book {
     isbn13: String
     publicationDate: String
 }
-
 
 input BookInput {
     title: String!

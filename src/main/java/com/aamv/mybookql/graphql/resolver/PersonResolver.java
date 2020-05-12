@@ -1,4 +1,4 @@
-package com.aamv.mybookql.graphql;
+package com.aamv.mybookql.graphql.resolver;
 
 import com.aamv.mybookql.model.Book;
 import com.aamv.mybookql.model.Person;

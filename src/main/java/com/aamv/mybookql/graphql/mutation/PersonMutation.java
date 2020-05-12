@@ -1,9 +1,7 @@
-package com.aamv.mybookql.graphql;
+package com.aamv.mybookql.graphql.mutation;
 
-import com.aamv.mybookql.model.Author;
 import com.aamv.mybookql.model.Book;
 import com.aamv.mybookql.model.Person;
-import com.aamv.mybookql.service.AuthorService;
 import com.aamv.mybookql.service.BookService;
 import com.aamv.mybookql.service.PersonService;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
@@ -13,39 +11,15 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 
 @Component
-public class Mutation implements GraphQLMutationResolver {
+public class PersonMutation implements GraphQLMutationResolver {
 
-    AuthorService authorService;
     BookService bookService;
     PersonService personService;
 
     @Autowired
-    public Mutation(AuthorService authorService, BookService bookService, PersonService personService) {
-        this.authorService = authorService;
+    public PersonMutation(BookService bookService, PersonService personService) {
         this.bookService = bookService;
         this.personService = personService;
-    }
-
-    public Author createAuthor(Author author) {
-        return authorService.createAuthor(author);
-    }
-    public Author updateAuthor(String authorId, Author author) {
-        return authorService.updateAuthor(authorId, author);
-    }
-    public String deleteAuthor(String authorId) {
-        authorService.deleteAuthor(authorId);
-        return authorId;
-    }
-
-    public Book createBook(Book book) {
-        return bookService.createBook(book);
-    }
-    public Book updateBook(String bookId, Book book) {
-        return bookService.updateBook(bookId, book);
-    }
-    public String deleteBook(String bookId) {
-        bookService.deleteBook(bookId);
-        return bookId;
     }
 
     public Person createPerson(Person person) {
